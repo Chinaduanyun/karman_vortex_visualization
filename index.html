@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>卡门涡街可视化</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>卡门涡街可视化</h1>
+        <div class="controls">
+            <div class="control-group">
+                <label for="velocity">流体速度 <small>(1-10)</small>:</label>
+                <input type="range" id="velocity" min="1" max="10" value="5" step="0.5">
+                <span id="velocity-value">5</span>
+            </div>
+            <div class="control-group">
+                <label for="obstacle-size">障碍物尺寸 <small>(像素)</small>:</label>
+                <input type="range" id="obstacle-size" min="10" max="50" value="25" step="5">
+                <span id="obstacle-size-value">25</span>
+            </div>
+            <div class="control-group">
+                <label for="viscosity">流体粘度 <small>(0.01-0.1)</small>:</label>
+                <input type="range" id="viscosity" min="0.01" max="0.1" value="0.05" step="0.01">
+                <span id="viscosity-value">0.05</span>
+            </div>
+            <div class="control-group">
+                <label for="particle-count">粒子数量 <small>(100-5000)</small>:</label>
+                <input type="range" id="particle-count" min="100" max="5000" value="500" step="50">
+                <span id="particle-count-value">500</span>
+            </div>
+            <div class="control-group">
+                <label for="show-vortices">显示涡旋点</label>
+                <input type="checkbox" id="show-vortices" checked>
+            </div>
+            <button id="reset">重置模拟</button>
+        </div>
+        <div class="canvas-wrapper">
+            <canvas id="karmanCanvas" width="900" height="400"></canvas>
+        </div>
+        <div class="info">
+            <p><b>卡门涡街</b>（Kármán vortex street）是流体动力学中，当流体绕过障碍物时在其后方形成的一系列交替旋转的涡流结构。</p>
+            <p>
+                <li>调整上方参数，观察不同条件下的涡流形成。</li>
+                <li>可勾选“显示涡旋点”以辅助理解涡街的交替脱落机制。</li>
+            </p>
+            <details>
+                <summary>关于卡门涡街</summary>
+                <p>卡门涡街广泛存在于自然界和工程中，如桥梁、烟囱、飞机机翼后方等。其形成与流体速度、障碍物尺寸、流体粘度等参数密切相关。</p>
+            </details>
+        </div>
+    </div>
+    <script src="js/simulation.js"></script>
+</body>
+</html>

@@ -1,0 +1,291 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #edf2f7;
+    border-radius: 6px;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    min-width: 200px;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+input[type="range"] {
+    margin-bottom: 5px;
+}
+
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    align-self: flex-end;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+.canvas-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#karmanCanvas {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    max-height: 500px;
+    width: 900px;
+    height: 400px;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid #d0d7de;
+}
+
+.control-group label {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.control-group small {
+    color: #888;
+    font-weight: normal;
+}
+
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 6px;
+}
+
+.info {
+    background-color: #e3f2fd;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 30px;
+    border-left: 4px solid #2196f3;
+}
+
+.info p {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 1000px) {
+    #karmanCanvas, .canvas-wrapper {
+        width: 100vw;
+        max-width: 100vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .controls {
+        flex-direction: column;
+    }
+    
+    .control-group {
+        width: 100%;
+    }
+    
+    #karmanCanvas {
+        width: 100vw;
+        height: 250px;
+    }
+}
+
+/* 移动端适配优化 */
+@media (max-width: 768px) {
+    body {
+        padding: 10px 5px;
+    }
+    
+    .container {
+        padding: 15px 10px;
+        margin: 0;
+        width: 100%;
+        border-radius: 0;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+    
+    .controls {
+        padding: 10px;
+        margin-bottom: 15px;
+        flex-direction: column;
+    }
+    
+    .control-group {
+        width: 100%;
+        margin: 5px 0;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .control-group label {
+        width: 30%;
+        margin-bottom: 0;
+    }
+    
+    input[type="range"] {
+        width: 55%;
+        margin-bottom: 0;
+    }
+    
+    .control-group span {
+        width: 10%;
+        text-align: right;
+    }
+    
+    button {
+        width: 100%;
+        margin: 10px 0;
+        padding: 12px;
+    }
+    
+    .canvas-wrapper {
+        margin-bottom: 15px;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+    }
+    
+    #karmanCanvas {
+        width: 100% !important;
+        height: 50vh !important; /* 使用视口高度的50%，保持纵横比 */
+        max-width: none;
+        max-height: none;
+        aspect-ratio: 2/1; /* 保持2:1的纵横比 */
+        margin-bottom: 10px;
+    }
+    
+    .info {
+        margin-top: 15px;
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+    
+    .info p, .info li {
+        margin-bottom: 8px;
+    }
+    
+    details summary {
+        padding: 5px 0;
+    }
+}
+
+/* 小屏手机特别优化 */
+@media (max-width: 375px) {
+    .control-group {
+        flex-wrap: wrap;
+    }
+    
+    .control-group label {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    
+    input[type="range"] {
+        width: 85%;
+    }
+    
+    .control-group span {
+        width: 15%;
+    }
+    
+    #karmanCanvas {
+        height: 40vh !important;
+    }
+}
+
+/* 横屏适配 */
+@media (max-width: 896px) and (orientation: landscape) {
+    body {
+        padding: 5px;
+    }
+    
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 10px;
+    }
+    
+    h1 {
+        width: 100%;
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+    
+    .controls {
+        width: 30%;
+        margin-right: 2%;
+        order: 1;
+    }
+    
+    .canvas-wrapper {
+        width: 68%;
+        order: 2;
+    }
+    
+    #karmanCanvas {
+        height: 40vh !important;
+    }
+    
+    .info {
+        width: 100%;
+        order: 3;
+        margin-top: 10px;
+    }
+}
